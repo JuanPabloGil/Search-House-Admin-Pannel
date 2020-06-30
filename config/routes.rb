@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  resources :houses
+  root 'static#index'
+  
   get 'v1/houses', to:'houses#api'
+  resources :houses
+  
 end
