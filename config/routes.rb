@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
   resources :houses
-  namespace :v1, defaults: {format: 'json'} do
-    get 'houses', to:'houses#index'
-  end
+  get 'v1/houses', to:'houses#api'
 end

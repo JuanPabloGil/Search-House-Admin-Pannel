@@ -5,10 +5,14 @@ class HousesController < ApplicationController
   # GET /houses.json
   def index
     @houses = House.all
+  end
+
+  def api
+    @houses = House.all
     render json: {
       :houses =>  
         @houses
-    }.to_json
+    }.to_json 
   end
 
   # GET /houses/1
