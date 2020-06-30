@@ -5,6 +5,10 @@ class HousesController < ApplicationController
   # GET /houses.json
   def index
     @houses = House.all
+    render json: {
+      :houses =>  
+        @houses
+    }.to_json
   end
 
   # GET /houses/1
@@ -69,6 +73,6 @@ class HousesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def house_params
-      params.require(:house).permit(:name, :price, :type)
+      params.require(:house).permit(:title, :price, :about)
     end
 end
