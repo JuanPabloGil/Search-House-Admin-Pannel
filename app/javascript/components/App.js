@@ -1,29 +1,34 @@
-import React from "react"
-// import Houses from './Houses'
-import { createStructuredSelector } from "reselect";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import Houses from './Houses'
+import { useDispatch, useSelector } from "react-redux";
 import { getHouses } from '../actions'
 
 // import PropTypes from "prop-types"
-class App extends React.Component {
+const App = () => {
 
-  render() {
+  // const { houses } = this.props
 
-    const { houses } = this.props
+  const houses = useSelector(state => state.houses);
+  const dispatch = useDispatch();
 
-    return (
-      <div>
-        <h1>This is the Home </h1>
-      </div>
-    );
-  }
+  // const handleRequest = () => {
+  //   dispatch(getHouses())
+  // }
+
+  useEffect(() => {
+    const loadAllHouses = async () => {
+      await dispatch(getHouses());
+    };
+    loadAllHouses();
+  }, [dispatch]);
+
+  return (
+    <div>
+      {houses.map((house, i) => <Houses key={`${i}+${house.title}`} data={house} />)}
+      {/* <button onClick={handleRequest}>Request</button> */}
+    </div>
+  );
 }
 
-const structuredSelector = createStructuredSelector({
-  houses: state => state.houses,
-});
 
-const mapDispatchToProps = { getHouses };
-
-
-export default connect(structuredSelector, mapDispatchToProps)(App)
+export default App

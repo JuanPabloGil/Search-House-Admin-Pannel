@@ -5,16 +5,16 @@ class Houses extends React.Component {
 
   render() {
     const { data } = this.props
-
+    const { title, about } = data
 
     return (
-      <React.Fragment>
-        <h1>Here are listed the houses</h1>
-      </React.Fragment>
+      <div>
+        <h1>{title}</h1>
+        <p>{about}</p>
+        <hr />
+      </div>
     );
   }
 }
-
-
 
 export default Houses

@@ -1,4 +1,4 @@
-import {GET_HOUSES} from '../actions';
+import {GET_HOUSES_SUCCES} from '../actions';
 
 const defaultState = [
     {
@@ -9,8 +9,8 @@ const defaultState = [
 
 const houses = (state = defaultState, action ) =>  {
     switch (action.type) {
-        case GET_HOUSES:
-            return state
+        case GET_HOUSES_SUCCES:
+            return action.payload.houses
         default:
             return state;
     }

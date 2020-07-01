@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import App from './App';
 import rootReducers from '../reducers';
 import { Provider } from 'react-redux';
+import {composeWithDevTools} from 'redux-devtools-extension'
 import PropTypes from "prop-types"
 
 class Index extends React.Component {
@@ -15,8 +16,24 @@ class Index extends React.Component {
       houses:
         [
           {
+            id: '128n37891',
             title: 'TestHouse',
             about: 'This is the description ',
+          },
+          {
+            id: '128n37892',
+            title: 'TestHouse-2',
+            about: 'This is the description-2 ',
+          },
+          {
+            id: '128n37893',
+            title: 'TestHouse-3',
+            about: 'This is the description-3 ',
+          },
+          {
+            id: '128n37894',
+            title: 'TestHouse-4',
+            about: 'This is the description-4 ',
           },
         ]
     };
@@ -24,15 +41,18 @@ class Index extends React.Component {
     const store = createStore(
       rootReducers,
       defaultState,
-      applyMiddleware(thunk),
-    )
+      composeWithDevTools(
+        applyMiddleware(
+          thunk
+        ),
+      )
+    );
 
     return (
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={App} />
-            <Route path="/notHome" render={() => ('not home ')} />
           </Switch>
         </BrowserRouter>
       </Provider>
