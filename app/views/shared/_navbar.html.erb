@@ -1,3 +1,9 @@
 <div class="d-flex">
     <button id="opn-btn" class="openbtn ml-4" onclick="openNav()"> ☰ </button>
+    
+    <% if current_user %>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <% else %>
+    <%= link_to 'Sign in', user_session_path %>
+    <% end %>
 </div>
