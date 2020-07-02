@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SearchHouse</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search House Web App</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,6 +16,31 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div id="main">
+      <%= render 'shared/navbar'  %> 
+      <%= render 'shared/sidebar'  %>
+
+      <div class="content">
+          <div class="display-zone">
+            <%= yield %>
+          </div>
+      </div>
+     </div>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "280px";
+        document.getElementById("main").style.marginLeft = "280px";
+        document.getElementById("opn-btn").style.display = "none";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.getElementById("opn-btn").style.display = "block";
+      }
+    </script>
+
   </body>
 </html>

@@ -3,17 +3,11 @@ import Houses from './Houses'
 import { useDispatch, useSelector } from "react-redux";
 import { getHouses } from '../actions'
 
-// import PropTypes from "prop-types"
-const App = () => {
 
-  // const { houses } = this.props
+const App = () => {
 
   const houses = useSelector(state => state.houses);
   const dispatch = useDispatch();
-
-  // const handleRequest = () => {
-  //   dispatch(getHouses())
-  // }
 
   useEffect(() => {
     const loadAllHouses = async () => {
@@ -23,9 +17,8 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="row">
       {houses.map((house, i) => <Houses key={`${i}+${house.title}`} data={house} />)}
-      {/* <button onClick={handleRequest}>Request</button> */}
     </div>
   );
 }

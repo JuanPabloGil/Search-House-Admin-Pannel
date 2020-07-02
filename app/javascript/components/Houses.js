@@ -8,7 +8,7 @@ class Houses extends React.Component {
     const { title, about } = data
 
     return (
-      <div>
+      <div className="col-md-4">
         <h1>{title}</h1>
         <p>{about}</p>
         <hr />
