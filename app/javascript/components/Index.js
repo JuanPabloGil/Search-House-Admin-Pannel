@@ -3,6 +3,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import thunk from 'redux-thunk';
 import App from './App';
+import House from './House';
 import rootReducers from '../reducers';
 import { Provider } from 'react-redux';
 import {composeWithDevTools} from 'redux-devtools-extension'
@@ -52,7 +53,8 @@ class Index extends React.Component {
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={App} />
+            <Route path="/" component={App}  exact />
+            <Route path="/house/:id" component={ House } />
           </Switch>
         </BrowserRouter>
       </Provider>
