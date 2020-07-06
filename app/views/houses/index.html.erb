@@ -1,31 +1,19 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Houses</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>About</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1>Manage Houses</h1>
+<%= link_to 'New House', new_house_path, class:'btn bg-main mb-5 mt-5 btn-lg btn-block' %>
+    
     <% @houses.each do |house| %>
-      <tr>
-        <td><%= house.title %></td>
-        <td><%= house.price %></td>
-        <td><%= house.about %></td>
-        <td><%= link_to 'Show', house %></td>
-        <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <h5><%= house.title %></h5>
+        $<%= house.price %> /month
+        <br/>
+        <p><%= house.about %></p>
+        <div>
+        <%= link_to 'Edit', edit_house_path(house), class: 'btn bg-main' %>
+        <%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn bg-main' %>
+        </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
 <br>
 
-<%= link_to 'New House', new_house_path %>
+

@@ -1,9 +1,8 @@
-<div class="d-flex">
-    <button id="opn-btn" class="openbtn ml-4" onclick="openNav()"> ☰ </button>
-    
+<div id="opn-btn"  class="shadow-sm p-1 mb-1 bg-white rounded">
+    <button class="openbtn ml-4" onclick="openNav()"> ☰ </button>
     <% if current_user %>
-    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+   <span class="align-middle "> <%= link_to 'Sign out', destroy_user_session_path, :class => "align-middle",  method: :delete %> <span>
     <% else %>
-    <%= link_to 'Sign in', user_session_path %>
+    <span class="align-middle text-right"> <%= link_to 'Sign in', user_session_path %> <span>
     <% end %>
 </div>

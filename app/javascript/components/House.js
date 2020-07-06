@@ -13,6 +13,7 @@ class House extends React.Component {
     const { state } = location
     const { data } = state
     const { id, title, about, price, created_at } = data
+    const time = created_at.split('T')[0]
 
     return (
       <div className="container">
@@ -27,7 +28,7 @@ class House extends React.Component {
           </div>
           <div className="col-md-6">
             <p>Description:{about}</p>
-            <p>Posted on {created_at}</p>
+            <p>Posted on {time}</p>
             </div>
             <button className="btn bg-main btn-lg btn-block mt-3 text-white">Appy to rent</button>
         </div>

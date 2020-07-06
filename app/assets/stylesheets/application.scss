@@ -15,14 +15,28 @@
  */
 @import "bootstrap";
 
+$color-orange: #ff5617;
+$color-orange-secondary: #d45120;
+
 body {
     background-color: #f7f5fa;
 }
 
-$color-orange: #ff5617;
-
 .bg-main {
     background-color: $color-orange;
+    color: white;
+    font-weight: bold;
+}
+
+.bg-main a {
+    color: white ;
+    font-weight: bold;
+}
+
+.bg-main:hover {
+    color: white !important;
+    font-weight: bold;
+    background-color: $color-orange-secondary;
 }
 
 .sidebar {
@@ -84,12 +98,16 @@ $color-orange: #ff5617;
     z-index: 1;
 }
 
+.navigation-bar {
+    background: white;
+}
+
 #main {
     transition: margin-left 0.5s;
 }
 
 .display-zone {
-    background-color: white;
+    background-color: #f7f5fa;
     padding: 20px;
     border-radius: 3px;
 }
@@ -104,6 +122,6 @@ $color-orange: #ff5617;
     position: absolute;
     bottom: 8px;
     right: 30px;
-    text-shadow: 1px 1px 1px black; 
+    text-shadow: 1px 1px 1px black;
     font-size: 21px;
 }

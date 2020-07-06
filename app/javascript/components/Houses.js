@@ -10,7 +10,7 @@ class Houses extends React.Component {
     const { title, price, id } = data
 
     return (
-      <div className="col-md-6 col-lg-4 ">
+      <div className="col-md-6 col-lg-4">
         <div className="shadow p-3 mb-5 bg-white rounded">
           <img src={houseImage} className="img-fluid" alt="House" />
           <hr />
