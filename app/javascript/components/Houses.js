@@ -8,6 +8,7 @@ class Houses extends React.Component {
   render() {
     const { data } = this.props
     const { title, price, id, category } = data
+    const { favorites } = this.props
 
     return (
       <div className="col-md-6 col-lg-4">
@@ -17,11 +18,11 @@ class Houses extends React.Component {
 
           <div className="row">
             <div className="col-8">
-            <Link
+              <Link
                 to={
                   {
                     pathname: `/house/${id}`,
-                    state: { data },
+                    state: { data, favorites },
                   }
                 }
               >
@@ -32,6 +33,7 @@ class Houses extends React.Component {
             <div className="col-4">
               <p className="text-right"> $ {price} <span className="text-muted"> / Month </span></p>
             </div>
+                
           </div>
         </div>
       </div>

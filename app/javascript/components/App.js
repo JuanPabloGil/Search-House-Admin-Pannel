@@ -9,6 +9,7 @@ const App = () => {
 
   const houses = useSelector(state => state.houses);
   const filter = useSelector(state => state.filter);
+  const favorites = useSelector(state => state.favorites);
 
   const dispatch = useDispatch();
 
@@ -16,13 +17,12 @@ const App = () => {
     dispatch(sortHouses(e, category));
   }
 
-
   const displayHouses = () => {
     let render;
     if (filter.length === 0) {
-      render = houses.map((house, i) => <Houses key={`${i}${house.id}`} data={house} />);
+      render = houses.map((house, i) => <Houses key={`${i}${house.id}`} data={house} favorites={favorites}  />);
     } else {
-      render = filter.map((f, i) => <Houses key={`${i}+${filter.id}`} data={f} />);
+      render = filter.map((f, i) => <Houses key={`${i}+${filter.id}`} data={f} favorites={favorites} />);
     }
     return render;
   };
@@ -44,6 +44,7 @@ const App = () => {
           categories.map((category =>
             <button
               className="btn bg-main m-1"
+              key={category}
               onClick={
                 () => handleFilter(houses, category)
               }>

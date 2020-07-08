@@ -13,18 +13,38 @@ class House extends React.Component {
     const { location } = this.props
     const { state } = location
     const { data } = state
+    const { favorites } = state
     const { id, title, about, price, created_at } = data
     const time = created_at.split('T')[0]
+
     const url = '/favorites'
-    const house_id = {house_id: id}
+
+    let house_id = { house_id: id }
+
+
+    const itsFavorite = (favorites, id) => {
+      let status = false
+      favorites.map(houses => {
+        if (houses.house_id === id) {
+          status = true
+        }
+      })
+      return status
+    }
+
+    const csrfToken = document.querySelector('[name=csrf-token]').content
+    Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
 
     const handleFavorite = () => {
-      Axios.post(url,  house_id )
-        .then(res => { debugger })
-        .catch(res => { })
+      Axios.post(url, house_id)
     }
-    const csrfToken = document.querySelector('[name=csrf-token]').content
-    Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken 
+
+    console.log(house_id)
+    const deleteFavorite = () => {
+      Axios.delete('/favorites/' + id, id)
+    }
+
+
 
     return (
       <div className="container">
@@ -41,9 +61,26 @@ class House extends React.Component {
             <p>Description:{about}</p>
             <p>Posted on {time}</p>
           </div>
-          <a href="/" className="btn bg-main btn-lg btn-block mt-3 text-white">
-            <button className="btn bg-main " onClick={handleFavorite}> Add to favorites</button>
-          </a>
+          {
+            itsFavorite(favorites, id) ?
+
+              <a href="/">
+                <button
+                  className="btn bg-main btn-lg btn-block mt-3 text-white"
+                  onClick={deleteFavorite}>
+                  Delete from Favorites
+              </button>
+              </a>
+
+              : <a href="/">
+                <button
+                  className="btn bg-main btn-lg btn-block mt-3 text-white"
+                  onClick={handleFavorite}>
+                  Add to favorites
+              </button>
+              </a>
+          }
+
         </div>
       </div>
     );
