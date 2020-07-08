@@ -9,6 +9,7 @@
         $<%= house.price %> /month
         <br/>
         <p><%= house.about %></p>
+        <span class="badge badge-secondary mb-3"><%= house.category %></span>
         <div>
         <%= link_to 'Edit', edit_house_path(house), class: 'btn bg-main' %>
         <%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn bg-main' %>

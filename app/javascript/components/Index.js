@@ -21,6 +21,7 @@ class Index extends React.Component {
             title: 'TestHouse',
             about: 'This is the description ',
             price: 1200,
+            category: 'Other'
           },
         ]
     };

@@ -1,7 +1,7 @@
-import {GET_HOUSES_SUCCES} from '../actions';
+import { GET_HOUSES_SUCCES } from '../actions';
+const defState = [];
 
-
-const houses = (state=[], action ) =>  {
+const houses = (state = defState, action) => {
     switch (action.type) {
         case GET_HOUSES_SUCCES:
             return action.payload.houses

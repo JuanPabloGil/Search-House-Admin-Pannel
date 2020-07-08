@@ -7,13 +7,14 @@ class Houses extends React.Component {
 
   render() {
     const { data } = this.props
-    const { title, price, id } = data
+    const { title, price, id, category } = data
 
     return (
       <div className="col-md-6 col-lg-4">
         <div className="shadow p-3 mb-5 bg-white rounded">
           <img src={houseImage} className="img-fluid" alt="House" />
           <hr />
+
           <div className="row">
             <div className="col-8">
             <Link
@@ -24,7 +25,8 @@ class Houses extends React.Component {
                   }
                 }
               >
-                <h2 className="h6"> <strong>{title}</strong></h2>
+                <h2 className="h6 text-dark"> <strong>{title}</strong></h2>
+                <span className="badge badge-secondary mb-3"> {category} </span>
               </Link>
             </div>
             <div className="col-4">
