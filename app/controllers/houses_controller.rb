@@ -1,7 +1,7 @@
 class HousesController < ApplicationController
 
   before_action :set_house, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @houses = current_user.houses.all

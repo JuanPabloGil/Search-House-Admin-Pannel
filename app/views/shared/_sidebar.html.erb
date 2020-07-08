@@ -3,7 +3,9 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> x </a>
       <div class="links-on-side font-weight-light">
          <%= link_to "Home", root_path, :class => 'nav-link '%>
+        <% if current_user %>
          <%= link_to "Manage Houses", houses_path, :class => 'nav-link'%>
+        <% end%>
       </div>
   </div>
 </nav>
