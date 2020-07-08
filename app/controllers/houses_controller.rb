@@ -1,17 +1,24 @@
 class HousesController < ApplicationController
 
   before_action :set_house, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     @houses = current_user.houses.all
   end
 
   def api
-    @houses = House.all
+    @houses = House.all 
+    if current_user
+      @favorites = current_user.favorites.all
+    else
+      @favorites = []
+    end
     render json: {
+      :favorites =>
+        @favorites,
       :houses =>  
-        @houses
+        @houses,
     }.to_json 
   end
 
