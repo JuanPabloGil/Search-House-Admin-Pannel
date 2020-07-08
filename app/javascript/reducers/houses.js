@@ -1,13 +1,7 @@
 import {GET_HOUSES_SUCCES} from '../actions';
 
-const defaultState = [
-    {
-        title: 'TestHouse',
-        about: 'This is the description ',
-    },
-];
 
-const houses = (state = defaultState, action ) =>  {
+const houses = (state=[], action ) =>  {
     switch (action.type) {
         case GET_HOUSES_SUCCES:
             return action.payload.houses

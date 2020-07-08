@@ -1,6 +1,7 @@
 import React from "react"
 import houseImage from '../../assets/images/house-image.jpg';
 import PropTypes from "prop-types"
+import Axios from "axios";
 
 class House extends React.Component {
   constructor(props) {
@@ -14,6 +15,16 @@ class House extends React.Component {
     const { data } = state
     const { id, title, about, price, created_at } = data
     const time = created_at.split('T')[0]
+    const url = '/favorites'
+    const house_id = {house_id: id}
+
+    const handleFavorite = () => {
+      Axios.post(url,  house_id )
+        .then(res => { debugger })
+        .catch(res => { })
+    }
+    const csrfToken = document.querySelector('[name=csrf-token]').content
+    Axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken 
 
     return (
       <div className="container">
@@ -29,8 +40,10 @@ class House extends React.Component {
           <div className="col-md-6">
             <p>Description:{about}</p>
             <p>Posted on {time}</p>
-            </div>
-            <button className="btn bg-main btn-lg btn-block mt-3 text-white">Appy to rent</button>
+          </div>
+          <a href="/" className="btn bg-main btn-lg btn-block mt-3 text-white">
+            <button className="btn bg-main " onClick={handleFavorite}> Add to favorites</button>
+          </a>
         </div>
       </div>
     );

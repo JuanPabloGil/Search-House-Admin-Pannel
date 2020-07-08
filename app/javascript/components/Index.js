@@ -20,21 +20,7 @@ class Index extends React.Component {
             id: '128n37891',
             title: 'TestHouse',
             about: 'This is the description ',
-          },
-          {
-            id: '128n37892',
-            title: 'TestHouse-2',
-            about: 'This is the description-2 ',
-          },
-          {
-            id: '128n37893',
-            title: 'TestHouse-3',
-            about: 'This is the description-3 ',
-          },
-          {
-            id: '128n37894',
-            title: 'TestHouse-4',
-            about: 'This is the description-4 ',
+            price: 1200,
           },
         ]
     };

@@ -6,4 +6,5 @@ class House < ApplicationRecord
     validates :about, presence: true, length: { maximum: 700,
                                                 too_long: '1000 characters in Article content is the maximum allowed.',
                                                 minimum: 20 }
+    has_many :favorites, dependent: :destroy
 end

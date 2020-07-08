@@ -14,5 +14,6 @@ export function getHouses() {
         return fetch(`v1/houses.json`)
             .then(response => response.json())
             .then(json => dispatch(getHousesSucces(json)))
+            .then(response => console.log(response) )
     };
 }

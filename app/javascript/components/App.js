@@ -17,8 +17,11 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div className="row">
-      {houses.map((house, i) => <Houses key={`${i}+${house.title}`} data={house} />)}
+    <div>
+      <h1 className="text-center p-5">Find your ideal Home </h1>
+      <div className="row">
+        {houses.map((house, i) => <Houses key={`${i}+${house.title}`} data={house} />)}
+      </div>
     </div>
   );
 }
