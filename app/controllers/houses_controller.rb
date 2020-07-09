@@ -1,6 +1,5 @@
 class HousesController < ApplicationController
-
-  before_action :set_house, only: [:show, :edit, :update, :destroy]
+  before_action :set_house, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   def index
@@ -8,31 +7,25 @@ class HousesController < ApplicationController
   end
 
   def api
-    @houses = House.all 
-    if current_user
-      @favorites = current_user.favorites.all
-    else
-      @favorites = []
-    end
+    @houses = House.all
+    @favorites = if current_user
+                   current_user.favorites.all
+                 else
+                   []
+                 end
     render json: {
-      :favorites =>
-        @favorites,
-      :houses =>  
-        @houses,
-    }.to_json 
+      favorites: @favorites,
+      houses: @houses
+    }.to_json
   end
 
-  def show
-  end
-
+  def show; end
 
   def new
     @house = House.new
   end
 
-
-  def edit
-  end
+  def edit; end
 
   def create
     @house = current_user.houses.new(house_params)
@@ -70,11 +63,11 @@ class HousesController < ApplicationController
 
   private
 
-    def set_house
-      @house = House.find(params[:id])
-    end
+  def set_house
+    @house = House.find(params[:id])
+  end
 
-    def house_params
-      params.require(:house).permit(:title, :price, :about, :category)
-    end
+  def house_params
+    params.require(:house).permit(:title, :price, :about, :category)
+  end
 end
