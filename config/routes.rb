@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'static#index'
+  
   devise_for :users
   resources :houses
   resources :favorites, only: [:create, :destroy, :index]

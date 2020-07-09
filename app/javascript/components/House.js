@@ -45,41 +45,42 @@ class House extends React.Component {
     }
 
 
-
     return (
       <div className="container">
         <a href="/">
           <button type="button" className="btn bg-main text-white mt-4 ">{' < Go Back '}</button>
         </a>
-        <h5 className="text-center p-3">{title}</h5>
+        <h4 className="text-center p-3">{title}</h4>
         <div className="row">
           <div className="col-md-6 img-with-text ">
             <img src={houseImage} className="img-fluid rounded" alt="House" />
             <div className="bottom-right-text "><strong>$ {price} /Month</strong></div>
           </div>
           <div className="col-md-6">
-            <p>Description:{about}</p>
-            <p>Posted on {time}</p>
+            <p>Description: <br />{about}</p>
+            <hr />
+            <span class="badge"> Posted on: {time}</span>
+            {
+              itsFavorite(favorites, id) ?
+
+                <a href="/">
+                  <button
+                    className="btn bg-main btn-lg btn-block mt-3 text-white"
+                    onClick={deleteFavorite}>
+                    Delete from Favorites
+              </button>
+                </a>
+
+                : <a href="/">
+                  <button
+                    className="btn bg-main btn-lg btn-block mt-3 text-white"
+                    onClick={handleFavorite}>
+                    Add to favorites
+              </button>
+                </a>
+            }
           </div>
-          {
-            itsFavorite(favorites, id) ?
 
-              <a href="/">
-                <button
-                  className="btn bg-main btn-lg btn-block mt-3 text-white"
-                  onClick={deleteFavorite}>
-                  Delete from Favorites
-              </button>
-              </a>
-
-              : <a href="/">
-                <button
-                  className="btn bg-main btn-lg btn-block mt-3 text-white"
-                  onClick={handleFavorite}>
-                  Add to favorites
-              </button>
-              </a>
-          }
 
         </div>
       </div>
