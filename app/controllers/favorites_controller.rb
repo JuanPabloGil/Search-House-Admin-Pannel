@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorites.new(favorite_params)
 
     if @favorite.save and !current_user.favorites.exists?(favorite_params)
-      redirect_to root_path
+      redirect_to favorites_path
     else
       redirect_to root_path
     end
@@ -24,7 +24,7 @@ class FavoritesController < ApplicationController
     if @favorite.delete
       redirect_to root_path
     else
-      redirect_to root_path
+      redirect_to favorites_path
     end
   end
 
