@@ -20,132 +20,44 @@ $color-orange-secondary: #d45120;
 $color-coal: #313030;
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    background-color: #f7f5fa;
-    height: 100%;
+  background-color: #f7f5fa;
+  height: 100%;
 }
 
 .text-coal {
-    color: $color-coal;
+  color: $color-coal;
 }
 
 .bg-main {
-    background-color: $color-orange;
-    color: white;
-    font-weight: bold;
+  background-color: $color-orange;
+  color: white;
+  font-weight: bold;
 }
 
 .bg-main a {
-    color: white;
-    font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
 .bg-main:hover {
-    color: white !important;
-    font-weight: bold;
-    background-color: $color-orange-secondary;
-}
-
-.sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #f7f5fa;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidebar a {
-    padding: 14px 0px 14px 32px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #373737;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidebar a:hover {
-    border-left: solid 4px $color-orange;
-    background-color: none;
-}
-
-.sidebar a:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    bottom: -2px;
-    left: 0;
-    background-color: #ffff;
-    visibility: hidden;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-}
-
-.sidebar .closebtn {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 30px;
-    margin-left: 50px;
-}
-
-.openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    color: #a7a7a7;
-    padding: 10px 15px;
-    border: none;
-    z-index: 1;
-}
-
-.navbar a {
-    color: $color-orange;
-}
-
-.navigation-bar {
-    background: white;
+  color: white !important;
+  font-weight: bold;
+  background-color: $color-orange-secondary;
 }
 
 #main {
-    transition: margin-left 0.5s;
-    height: 100%;
+  transition: margin-left 0.5s;
+  height: 100%;
 }
-
-.display-zone {
-    background-color: #f7f5fa;
-    padding: 20px;
-    border-radius: 3px;
-    height: 92% ;
-}
-
-.img-with-text {
-    position: relative;
-    text-align: center;
-    color: white;
-}
-
-.bottom-right-text {
-    position: absolute;
-    bottom: 8px;
-    right: 30px;
-    text-shadow: 1px 1px 1px black;
-    font-size: 21px;
-}
-
-
+/* stylelint-disable */
 .session-bg {
-    background:linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(226, 226, 226, 0.8)), image-url("house-image.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(226, 226, 226, 0.8)), image-url("house-image.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
+/* stylelint-enable */
