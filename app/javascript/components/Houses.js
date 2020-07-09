@@ -33,7 +33,7 @@ class Houses extends React.Component {
             <div className="col-4">
               <p className="text-right"> $ {price} <span className="text-muted"> / Month </span></p>
             </div>
-                
+
           </div>
         </div>
       </div>

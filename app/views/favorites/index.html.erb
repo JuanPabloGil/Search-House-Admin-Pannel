@@ -9,8 +9,10 @@
                     <br/>
                     <p><%= house.about %></p>
                     <span class="badge badge-secondary mb-3"><%= house.category %></span>
-                    <div>
-                    </div>
+                     <%= link_to 'Delete from favorites ',
+                                                         favorite_path(id: house.id),
+                                                         method: :delete,
+                                                         class: 'btn bg-main' %>
                 </div>
             </div>
         <% end %>

@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import thunk from 'redux-thunk';
 import App from './App';
 import House from './House';
+import Favorites from './Favorites'
 import rootReducers from '../reducers';
 import { Provider } from 'react-redux';
 import {composeWithDevTools} from 'redux-devtools-extension'

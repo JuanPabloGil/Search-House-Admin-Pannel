@@ -39,7 +39,6 @@ class House extends React.Component {
       Axios.post(url, house_id)
     }
 
-    console.log(house_id)
     const deleteFavorite = () => {
       Axios.delete('/favorites/' + id, id)
     }
@@ -59,7 +58,7 @@ class House extends React.Component {
           <div className="col-md-6">
             <p>Description: <br />{about}</p>
             <hr />
-            <span class="badge"> Posted on: {time}</span>
+            <span className="badge"> Posted on: {time}</span>
             {
               itsFavorite(favorites, id) ?
 
