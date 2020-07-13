@@ -5,7 +5,6 @@ class FavoritesController < ApplicationController
     @favorites = current_user.favorites.pluck(:house_id)
     @houses = House.find(@favorites)
     @list_of_favorites = current_user.favorites
-    # render component: 'Favorites', props: { houses: @houses, favorites: @list_of_favorites }
   end
 
   def create
