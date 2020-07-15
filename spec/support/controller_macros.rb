@@ -6,4 +6,11 @@ module ControllerMacros
       sign_in user
     end
   end
+
+  
+  def create_house_f
+    before(:each) do 
+      house = FactoryBot.create(:house)
+    end
+  end
 end
