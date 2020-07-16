@@ -10,21 +10,19 @@ class FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.new(favorite_params)
     respond_to do |format|
-          if @favorite.save  and !current_user.favorites.exists?(favorite_params)
-            format.html { redirect_to houses_path, notice: 'House added to favorites' }
-            format.json { render json: {status: :created} }
-          else
-            format.html { redirect_to houses_path, notice: 'Error on creation ' }
-            format.json { render json: @favorite.errors, status: :unprocessable_entity }
-          end
+      if @favorite.save and !current_user.favorites.exists?(favorite_params)
+        format.html { redirect_to houses_path, notice: 'House added to favorites' }
+        format.json { render json: { status: :created } }
+      else
+        format.html { redirect_to houses_path, notice: 'Error on creation ' }
+        format.json { render json: @favorite.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
     @favorite = current_user.favorites.find_by(favorite_params)
-    if @favorite.delete
-      
-    end
+    format.json { render json: { status: :deleted } } if @favorite.delete
   end
 
   private
