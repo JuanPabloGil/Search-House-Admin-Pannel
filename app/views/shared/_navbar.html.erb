@@ -1,0 +1,10 @@
+<div id="opn-btn"  class="navbar shadow-sm p-1 mb-1 bg-white rounded">
+    <button class="openbtn ml-4" onclick="openNav()"> ☰ </button>
+    <ul class="ml-auto pr-4">
+        <% if current_user %>
+        <span class="align-middle "> <%= link_to 'Sign out', destroy_user_session_path, :class => "align-middle",  method: :delete %> <span>
+        <% else %>
+        <span class="align-middle"> <%= link_to 'Sign in', user_session_path %> <span>
+        <% end %>
+    </ul>
+</div>

@@ -1,0 +1,43 @@
+<%= form_with(model: house, local: true) do |form| %>
+  <% if house.errors.any? %>
+    <div id="error_explanation">
+      <div class='alert alert-danger'>
+      <% house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="shadow p-3 mt-5 mb-5 bg-white rounded">
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price, "Price /month" %>
+      <%= form.number_field :price, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :category %> <br/>
+      <%= form.select(:category, options_for_select([['House','House'],
+                                                    ['Aparment','Aparment'],
+                                                    ['Room','Room'],
+                                                    ['Other','Other']]),
+                                                    class: 'form-control') %>
+    </div>
+
+    <div class="field">
+      <%= form.label :about %>
+      <%= form.text_area :about, class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit :class => 'btn bg-main mt-4' %>
+    </div>
+
+  </div>
+  
+<% end %>

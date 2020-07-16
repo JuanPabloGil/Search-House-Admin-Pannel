@@ -1,0 +1,21 @@
+
+<h1 class="text-center p-5">Favorite House's</h1>
+    <div class="row">
+        <% @houses.each do |house| %>
+            <div class="col-sm-4">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                    <h5><%= house.title %></h5>
+                    $<%= house.price %> /month
+                    <br/>
+                    <p><%= house.about %></p>
+                    <span class="badge badge-secondary mb-3"><%= house.category %></span>
+                     <%= link_to 'Delete from favorites ',
+                                                         favorite_path(id: house.id),
+                                                         method: :delete,
+                                                         class: 'btn bg-main' %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<br>
+

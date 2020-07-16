@@ -1,0 +1,67 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+
+$color-orange: #ff5617;
+$color-orange-secondary: #d45120;
+$color-coal: #313030;
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #f7f5fa;
+  height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.text-coal {
+  color: $color-coal;
+}
+
+.bg-main {
+  background-color: $color-orange;
+  color: white;
+  font-weight: bold;
+}
+
+.bg-main a {
+  color: white;
+  font-weight: bold;
+}
+
+.bg-main:hover {
+  color: white !important;
+  font-weight: bold;
+  background-color: $color-orange-secondary;
+}
+
+#main {
+  transition: margin-left 0.5s;
+  height: 100%;
+}
+/* stylelint-disable */
+.session-bg {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(226, 226, 226, 0.8)), image-url("house-image.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+/* stylelint-enable */
